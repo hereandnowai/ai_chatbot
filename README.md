@@ -1,7 +1,3 @@
-Certainly, Monsieur. Below is a complete `README.md` file content for your GitHub repository. It's structured, SEO-optimized, and beginner-friendly, aligning with the mission of HERE AND NOW AI:
-
----
-
 # Build an AI-Powered Chatbot using Google Gemini API
 
 Welcome to this beginner-friendly project from **HERE AND NOW AI – Artificial Intelligence Research Institute**, where you'll learn how to build your very own **AI-powered chatbot** using **Google Gemini API**, **Python**, and **Gradio** — all inside **Google Colab**.
