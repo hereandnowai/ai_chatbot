@@ -1,0 +1,6 @@
+openai
+dotenv
+gradio
+fastapi
+uvicorn
+python-dotenv
