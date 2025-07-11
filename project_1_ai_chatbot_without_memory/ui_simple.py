@@ -1,14 +1,13 @@
 import gradio as gr
 from app import ai_chatbot
 
-interface = gr.Interface(
+chat_interface = gr.ChatInterface(
     fn=ai_chatbot,
-    inputs=gr.Textbox(label="Ask Caramel AI", placeholder="Type your question here..."),
-    outputs=gr.Textbox(label="Caramel AI's Response"),
     title="Caramel AI - AI Teacher built by HERE AND NOW AI",
     description="Ask Caramel AI anything about AI! Caramel AI is here to teach you AI in a simple and friendly way. Let's learn together!",
     theme="default",
     flagging_mode="never",
+    type="messages",
     examples=[
         ["What is AI?"],
         ["Can you explain machine learning?"],
@@ -31,9 +30,8 @@ interface = gr.Interface(
         ["What are some popular AI tools and frameworks?"],
         ["How can AI be used in education?"],
         ["What is the role of data in AI?"],
-    ],
-    examples_per_page=5,
+    ]
 )
 
 if __name__ == "__main__":
-    interface.launch()
+    chat_interface.launch()
