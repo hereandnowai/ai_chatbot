@@ -4,7 +4,7 @@
   </a>
 </p>
 
-<h1 align="center">LangChain: Chatbots with RAG, Agents, and Tools</h1>
+<h1 align="center">Learn to Build Multimodal Chatbots</h1>
 
 <p align="center">
   <em>A project-based tutorial by <a href="https://hereandnowai.com" target="_blank">HERE AND NOW AI</a>, designed with a passion for innovation.</em>
