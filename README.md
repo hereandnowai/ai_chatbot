@@ -1,3 +1,17 @@
+<p align="center">
+  <a href="https://hereandnowai.com" target="_blank">
+    <img src="https://raw.githubusercontent.com/hereandnowai/images/refs/heads/main/logos/HNAI%20Title%20-Teal%20%26%20Golden%20Logo%20-%20DESIGN%203%20-%20Raj-07.png" alt="HERE AND NOW AI Logo" width="400"/>
+  </a>
+</p>
+
+<h1 align="center">LangChain: Chatbots with RAG, Agents, and Tools</h1>
+
+<p align="center">
+  <em>A project-based tutorial by <a href="https://hereandnowai.com" target="_blank">HERE AND NOW AI</a>, designed with a passion for innovation.</em>
+</p>
+
+---
+
 # Build an AI-Powered Chatbot using Google Gemini API
 
 Welcome to this beginner-friendly project from **HERE AND NOW AI – Artificial Intelligence Research Institute**, where you'll learn how to build your very own **AI-powered chatbot** using **Google Gemini API**, **Python**, and **Gradio** — all inside **Google Colab**.
