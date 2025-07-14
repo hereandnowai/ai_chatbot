@@ -8,7 +8,7 @@ load_dotenv()
 
 # Initialize OpenAI client with Gemini API key
 # Make sure to replace 'GEMINI_API_KEY' with your actual API key
-api_key = os.getenv("GEMINI_API_KEY")
+api_key = os.getenv("GOOGLE_API_KEY")
 
 # on vs code
 client = OpenAI(base_url="https://generativelanguage.googleapis.com/v1beta/openai", api_key=api_key)

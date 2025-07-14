@@ -1,6 +1,9 @@
 openai
-dotenv
 gradio
-fastapi
-uvicorn
 python-dotenv
+requests
+pypdf2
+beautifulsoup4
+faiss-cpu
+scikit-learn
+sentence-transformers
