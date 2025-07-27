@@ -1,55 +1,56 @@
-# Step 2 - Importing the installed libraries
-from openai import OpenAI
-# from google.colab import userdata
-from dotenv import load_dotenv
-import os
-import gradio as gr
-import requests
+import os # Import the os module for interacting with the operating system
+from openai import OpenAI # Import the OpenAI library for API interaction
+from dotenv import load_dotenv # Import load_dotenv to load environment variables
+import requests # Import requests for making HTTP requests
 
+# Load environment variables from the .env file
 load_dotenv()
 
-api_key=os.getenv("GEMINI_API_KEY")
+# Get the Google API key from environment variables
+api_key = os.getenv("GOOGLE_API_KEY")
+# Raise an error if the API key is not found
+if not api_key:
+    raise ValueError("GOOGLE_API_KEY environment variable not found.")
 
-# Step 3 - on colab - Loading the API Key & base_url
-# client = OpenAI(
-#     api_key=userdata.get("GOOGLE_API_KEY"),
-#     base_url="https://generativelanguage.googleapis.com/v1beta/openai/")
-
-# on vs code
+# Initialize the OpenAI client with the base URL and API key
 client = OpenAI(base_url="https://generativelanguage.googleapis.com/v1beta/openai", api_key=api_key)
 
-# Step 4 - Getting the source file from github.com/hereandnowai
+# Define the URL for the text context file on GitHub
 url = "https://raw.githubusercontent.com/hereandnowai/vac/refs/heads/master/prospectus-context.txt"
+# Make an HTTP GET request to fetch the content
 response = requests.get(url)
 
-# Step 5 - Save it to a file in the current working directory
+# Determine the script's directory and define the local file path for saving the text
 script_dir = os.path.dirname(os.path.abspath(__file__))
 file_path = os.path.join(script_dir, "profile-of-hereandnowai.txt")
+# Write the fetched content to the local file
 with open(file_path, "wb") as f:
-  f.write(response.content)
+    f.write(response.content)
 
-# Step 6 - Fetch the text
+# Set the path to the text file for reading
 text_path = file_path
+# Attempt to read the text content from the file
 try:
-  with open(text_path, "r", encoding="utf-8") as file:
-    text_lines = file.readlines()
-    text_lines = [line.strip() for line in text_lines if line.strip()]
-    text_context = "\n".join(text_lines) if text_lines else "No text found in TXT file."
+    with open(text_path, "r", encoding="utf-8") as file:
+        # Read lines, strip whitespace, and join them into a single string
+        text_lines = file.readlines()
+        text_context = "\n".join([line.strip() for line in text_lines if line.strip()])
+# Handle exceptions during file reading
 except Exception as e:
-  print(f"Error reading TXT file: {e}")
-  text_context = "Error extracting text from TXT file."
+    print(f"Error reading TXT file: {e}")
+    text_context = "Error extracting text from TXT file."
 
-# Step 7 - Function to the call the LLM
-def ragbot_text(message, history):  # history needed by ChatInterface
-    # System prompt that defines the context for the AI
+# Define the RAG chatbot function
+def ragbot_text(message, history):
+    # Define the system prompt, incorporating the fetched text context
     system_prompt = f"You are Caramel AI an ai assistant built by HERE AND NOW AI. Answer the user's questions based only on the following context: \n\n{text_context}"
-    
-    # Create the list of messages to send to the API
+    # Initialize messages with the system prompt
     messages = [{"role":"system", "content":system_prompt}]
+    # Extend messages with the chat history
     messages.extend(history)
+    # Add the current user message
     messages.append({"role":"user", "content":message})
+    # Call the OpenAI API to get a response from the Gemini model
     response = client.chat.completions.create(model="gemini-2.0-flash",messages=messages)
+    # Return the AI's response content
     return response.choices[0].message.content
-
-if __name__ == "__main__":
-    print(ragbot_text("who is the cto of here and now ai?", []))
