@@ -7,7 +7,7 @@ import requests # Import requests for making HTTP requests
 load_dotenv()
 
 # Get the Google API key from environment variables
-api_key = os.getenv("GOOGLE_API_KEY")
+api_key = os.getenv("GEMINI_API_KEY")
 # Raise an error if the API key is not found
 if not api_key:
     raise ValueError("GOOGLE_API_KEY environment variable not found.")

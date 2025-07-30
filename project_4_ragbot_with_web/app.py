@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup
 
 # Step 3 - for vs code
 load_dotenv()
-api_key = os.getenv("GOOGLE_API_KEY")
+api_key = os.getenv("GEMINI_API_KEY")
 base_url= "https://generativelanguage.googleapis.com/v1beta/openai/"
 client = OpenAI(api_key=api_key, base_url=base_url)
 

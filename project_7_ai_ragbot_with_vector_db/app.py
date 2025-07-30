@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 from sentence_transformers import SentenceTransformer
 
 load_dotenv()
-client = OpenAI(api_key=os.getenv("GOOGLE_API_KEY"), base_url="https://generativelanguage.googleapis.com/v1beta/openai/")
+client = OpenAI(api_key=os.getenv("GEMINI_API_KEY"), base_url="https://generativelanguage.googleapis.com/v1beta/openai/")
 embedding_model = SentenceTransformer('BAAI/bge-small-en-v1.5')
 
 PDF_FILE_NAME = "About_HERE_AND_NOW_AI.pdf"

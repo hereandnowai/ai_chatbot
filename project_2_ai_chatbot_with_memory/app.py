@@ -6,7 +6,7 @@ from dotenv import load_dotenv # Import load_dotenv to load environment variable
 load_dotenv()
 
 # Get the Google API key from environment variables
-api_key = os.getenv("GOOGLE_API_KEY")
+api_key = os.getenv("GEMINI_API_KEY")
 
 # Initialize the OpenAI client with the base URL and API key
 client = OpenAI(base_url="https://generativelanguage.googleapis.com/v1beta/openai", api_key=api_key)
