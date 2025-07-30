@@ -16,7 +16,7 @@ model = "gemini-2.5-flash-lite"
 client = OpenAI(base_url="https://generativelanguage.googleapis.com/v1beta/openai", api_key=api_key)
 
 # Step 4 - Load branding data
-branding_json_path = os.path.join(os.path.dirname(__file__), '../branding.json')
+branding_json_path = os.path.join(os.path.dirname(__file__), 'branding.json')
 with open(branding_json_path, 'r') as f:
     branding = json.load(f)
 
@@ -79,7 +79,7 @@ if __name__ == "__main__":
         border-radius: 10px;
     }
     """
-    with gr.Blocks(theme=gr.themes.Soft(primary_hue="yellow", secondary_hue="teal"), css=css) as app:
+    with gr.Blocks(theme=gr.themes.Monochrome(primary_hue="yellow", secondary_hue="teal"), css=css) as app:
         with gr.Row():
             with gr.Column(scale=1, elem_id="sidebar"):
                 gr.Image(brand['logo']['favicon'], height=150, width=150)
